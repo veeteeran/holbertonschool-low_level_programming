@@ -11,12 +11,11 @@ int main(void)
 {
 	char alpha[27] = "abcdefghijklmnopqrstuvwxyz";
 	int len_alpha = strlen(alpha);
-	int i = 0;
+	int i;
 
-	while (i <= len_alpha)
+	for (i - 0; i <= len_alpha; i++)
 	{
 		putchar(alpha[i]);
-		i++;
 	}
 	putchar('\n');
 
