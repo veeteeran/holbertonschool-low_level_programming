@@ -13,7 +13,7 @@ int main(void)
 	int len_alpha = strlen(alpha);
 	int i;
 
-	for (i - 0; i <= len_alpha; i++)
+	for (i = 0; i <= len_alpha; i++)
 	{
 		putchar(alpha[i]);
 	}
