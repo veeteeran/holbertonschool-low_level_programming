@@ -12,11 +12,12 @@ int main(void)
 	char upper[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	int i;
 	int j;
+
 	for (i = 0; i < 26; i++)
 	{
 		putchar(lower[i]);
 	}
-	
+
 	for (j = 0; j < 26; j++)
 	{
 		putchar(upper[j]);
