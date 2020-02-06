@@ -8,9 +8,10 @@
  */
 int main(void)
 {
-	char alpha[27] = "abcdefghijklmnopqrstuvwxyz";	
+	char alpha[27] = "abcdefghijklmnopqrstuvwxyz";
 	int i;
 	char c;
+
 	for (i = 0; i < 26; i++)
 	{
 		c = alpha[i];
