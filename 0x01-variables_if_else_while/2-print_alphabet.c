@@ -9,13 +9,12 @@
  */
 int main(void)
 {
-	char alpha[27] = "abcdefghijklmnopqrstuvwxyz";
-	int len_alpha = strlen(alpha);
-	int i;
-
-	for (i = 0; i <= len_alpha; i++)
+	char alpha[27] = "abcdefghijklmnopqrstuvwxyz";	
+	int i = 0;
+	char c = alpha[i];
+	for (i = 0; i < 27; i++)
 	{
-		putchar(alpha[i]);
+		putchar(c);
 	}
 	putchar('\n');
 
