@@ -12,7 +12,7 @@ int main(void)
 
 	for (set_one = 0; set_one < 99; set_one++)
 	{
-		for (set_two = 1; set_two < 100; set_two++)
+		for (set_two = set_one + 1; set_two < 100; set_two++)
 		{
 			putchar((set_one / 10) + '0');
 			putchar((set_one % 10) + '0');
