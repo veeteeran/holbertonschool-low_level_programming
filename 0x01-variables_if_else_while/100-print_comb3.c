@@ -20,7 +20,7 @@ int main(void)
 	{
 		j = i + 1;
 		while (j <= nine)
-		{	
+		{
 			putchar(i);
 			putchar(j);
 			if (i == (nine - 1) && j == nine)
