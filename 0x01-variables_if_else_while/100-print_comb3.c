@@ -36,7 +36,7 @@ int main(void)
 			}
 			j++;
 		}
-		counter ++;
+		counter++;
 	}
 
 	return (0);
