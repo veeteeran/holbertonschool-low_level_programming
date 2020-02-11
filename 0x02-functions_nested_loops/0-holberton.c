@@ -1,4 +1,3 @@
-#include "holberton.h"
 /**
  * main - Entry point
  *
@@ -11,7 +10,7 @@ int main(void)
 	char str[10] = "Holberton";
 	int i;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 9; i++)
 	{
 		_putchar(str[i]);
 	}
