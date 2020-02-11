@@ -1,12 +1,14 @@
-#include <stdio.h>
+#include "holberton.h"
 /**
- * main - Entry point
+ * add - returns the sum of two integers
+ * @a: first addend
+ * @b: second addend
  *
- *
- *
- * Return: Always 0 (Success)
+ * Return: sum of a + b
  */
-int main(void)
+int add(int a, int b)
 {
-	return (0);
+	int c = a + b;
+
+	return (c);
 }
