@@ -1,12 +1,19 @@
-#include <stdio.h>
+#include "holberton.h"
 /**
- * main - Entry point
+ * _isalpha - checks for alphabetic character
+ * @c: The character to check
  *
- *
- *
- * Return: Always 0 (Success)
+ * Return: On success 1.
+ * ON error, 0 is returned, and errno is set appropriately.
  */
-int main(void)
+int _isalpha(int c)
 {
-	return (0);
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
