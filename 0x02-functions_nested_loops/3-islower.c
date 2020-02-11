@@ -1,12 +1,19 @@
-#include <stdio.h>
+#include "holberton.h"
 /**
- * main - Entry point
+ * _islower - checks for lowercase character
+ * @c: The character to check
  *
- *
- *
- * Return: Always 0 (Success)
+ * Return: On success 1;
+ * On error, 0 is returned, and errno is set appropriately.
  */
-int main(void)
+int _islower(int c)
 {
-	return (0);
+	if (c >= 97 && c <= 122)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
