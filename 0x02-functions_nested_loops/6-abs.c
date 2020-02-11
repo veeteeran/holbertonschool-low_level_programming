@@ -1,12 +1,18 @@
-#include <stdio.h>
+#include "holberton.h"
 /**
- * main - Entry point
+ * _abs - computes absolute value of an int
+ * @a: The int to compute to abs
  *
- *
- *
- * Return: Always 0 (Success)
+ * Return: a, the absolute value
  */
-int main(void)
+int _abs(int a)
 {
-	return (0);
+	if (a < 0)
+	{
+		return (a * -1);
+	}
+	else
+	{
+		return (a);
+	}
 }
