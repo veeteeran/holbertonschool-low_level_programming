@@ -1,12 +1,39 @@
+#include "holberton.h"
 #include <stdio.h>
 /**
- * main - Entry point
- *
- *
- *
- * Return: Always 0 (Success)
+ * print_to_98 - print all numbers n to 98
+ * @n: start printing from n
  */
-int main(void)
+void print_to_98(int n)
 {
-	return (0);
+	int i;
+
+	if (n < 98)
+	{
+		for (i = n; i <= 98; i++)
+		{
+			if (i == 98)
+			{
+				printf("%d\n", i);
+			}
+			else
+			{
+				printf("%d, ", i);
+			}
+		}
+	}
+	else
+	{
+		for (i = n; i >= 98; i--)
+		{
+			if (i == 98)
+			{
+				printf("%d\n", i);
+			}
+			else
+			{
+				printf("%d, ", i);
+			}
+		}
+	}
 }
