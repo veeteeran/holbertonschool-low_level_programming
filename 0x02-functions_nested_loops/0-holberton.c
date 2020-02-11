@@ -1,3 +1,4 @@
+#include "holberton.h"
 /**
  * main - Entry point
  *
@@ -7,7 +8,7 @@
  */
 int main(void)
 {
-	char str[10] = "Holberton";
+	char str[] = "Holberton";
 	int i;
 
 	for (i = 0; i < 9; i++)
