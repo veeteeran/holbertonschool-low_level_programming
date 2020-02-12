@@ -13,7 +13,7 @@ int main(void)
 	long int next;
 	int i;
 
-	printf("1 2\n");
+	printf("1, 2\n");
 	for (i = 0; i <= 48; i++)
 	{
 		next = prev + curr;
