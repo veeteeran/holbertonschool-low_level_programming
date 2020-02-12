@@ -14,16 +14,16 @@ int main(void)
 	int i;
 
 	printf("1 2\n");
-	for (i = 0; i <= 50; i++)
+	for (i = 0; i <= 48; i++)
 	{
 		next = prev + curr;
 		printf("%lu", next);
 
-		if (i != 50)
+		if (i != 48)
 		{
 			printf(", ");
 		}
-		else if (i == 50)
+		else if (i == 48)
 		{
 			printf("\n");
 		}
