@@ -13,17 +13,17 @@ int main(void)
 	long int next;
 	int i;
 
-	printf("1, 2\n");
-	for (i = 0; i <= 48; i++)
+	printf("1, 2, ");
+	for (i = 0; i < 48; i++)
 	{
 		next = prev + curr;
 		printf("%lu", next);
 
-		if (i != 48)
+		if (i != 47)
 		{
 			printf(", ");
 		}
-		else if (i == 48)
+		else if (i == 47)
 		{
 			printf("\n");
 		}
