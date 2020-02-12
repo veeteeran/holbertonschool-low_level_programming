@@ -12,13 +12,14 @@ int main(void)
 	long int curr = 2;
 	long int next;
 	int i;
-	long int max_num = 4000000;
 	long int sum = 0;
 
-	for (i = 0; i <= max_num; i++)
+	for (i = 0; i <= next; i++)
 	{
 		/* next gets next fibonnaci number by summing prvious two numbers */
 		next = prev + curr;
+		if (next > 4000000)
+			break;
 		/* Add to sum only even terms */
 		if (next % 2 == 0)
 			sum += next;
