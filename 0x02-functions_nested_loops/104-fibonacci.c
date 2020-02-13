@@ -8,16 +8,16 @@
  */
 int main(void)
 {
-	double prev = 1;
-	double curr = 2;
-	double next;
+	long double prev = 1;
+	long double curr = 2;
+	long double next;
 	int i;
 
 	printf("1, 2, ");
 	for (i = 0; i < 96; i++)
 	{
 		next = prev + curr;
-		printf("%.f", next);
+		printf("%.Lf", next);
 
 		if (i != 95)
 		{
