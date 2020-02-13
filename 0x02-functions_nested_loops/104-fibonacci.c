@@ -14,12 +14,12 @@ int main(void)
 	int i;
 
 	printf("1, 2, ");
-	for (i = 0; i < 97; i++)
+	for (i = 0; i < 96; i++)
 	{
 		next = prev + curr;
 		printf("%.f", next);
 
-		if (i != 96)
+		if (i != 95)
 		{
 			printf(", ");
 		}
