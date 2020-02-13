@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * print_diagonal - draw a diagonal on the terminal
- * @n: the number of times to print \
+ * @n: the number of times to print backslash
  */
 void print_diagonal(int n)
 {
