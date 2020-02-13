@@ -10,16 +10,13 @@ int main(void)
 {
 	long int prev = 1;
 	long int curr = 2;
-	long int next;
-	int i;
-	long int sum = 0;
+	long int next = 0;
+	long int max_num = 4000000;
+	long int sum = 0;	
 
-	for (i = 0; i <= next; i++)
+	while (next < max_num)
 	{
-		/* next gets next fibonnaci number by summing prvious two numbers */
 		next = prev + curr;
-		if (next > 4000000)
-			break;
 		/* Add to sum only even terms */
 		if (next % 2 == 0)
 			sum += next;
