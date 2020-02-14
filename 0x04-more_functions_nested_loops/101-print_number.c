@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * print_number - print an int
  * @n: the int to print
@@ -9,6 +8,7 @@ void print_number(int n)
 	int counter, digit;
 	int base_ten = 1000000000;
 	int skip_zero = 1;
+
 
 	counter = 0;
 	while (counter < 9)
