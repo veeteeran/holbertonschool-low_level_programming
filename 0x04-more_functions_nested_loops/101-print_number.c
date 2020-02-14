@@ -15,7 +15,7 @@ void print_number(int n)
 	{
 		if (n < 0)
 		{
-			n *= - 1;
+			n *= -1;
 		}
 
 		digit = (n / base_ten) % 10;
@@ -29,7 +29,7 @@ void print_number(int n)
 			skip_zero = 0;
 			_putchar(digit + '0');
 			base_ten /= 10;
-	
+
 		}
 		counter++;
 	}
