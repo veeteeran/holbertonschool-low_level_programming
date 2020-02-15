@@ -26,15 +26,11 @@ void print_number(int n)
 			n *= -1;
 			_putchar('-');
 		}
-
 		/* avoids roblems when next digit it zero */
 		digit = (n / base_ten) % 10;
-
 		/* decrease base_ten until reaches first place */
 		if (digit == 0 && skip_zero)
-		{
 			base_ten /= 10;
-		}
 		else
 		{
 			skip_zero = 0;
@@ -46,11 +42,7 @@ void print_number(int n)
 	}
 	/* check if num was min_int and add 1 tp output accordingly */
 	if (was_min > 0)
-	{
 		_putchar(n % 10 + '1');
-	}
 	else
-	{
 		_putchar(n % 10 + '0');
-	}
 }
