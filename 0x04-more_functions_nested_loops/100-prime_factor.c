@@ -19,7 +19,6 @@ int main(void)
 		/* use fmod func, modulus operator does not work with floats */
 		while (fmod(big_num, factor) == 0)
 		{
-			printf("%.f ", factor);
 			/* divide by factor to reduce big_num */
 			big_num /= factor;
 			/* when this is true, largest prime found, break */
