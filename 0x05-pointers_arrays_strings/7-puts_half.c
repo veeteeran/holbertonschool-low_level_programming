@@ -25,11 +25,11 @@ void puts_half(char *str)
 {
 	int length, half;
 
-	length = _strlen(str) - 1;
+	length = _strlen(str);
 	half = length / 2;
-	if (half % 2 != 0)
+	if (length % 2 != 0)
 	{
-		half = (length - 1) / 2;
+		half += 1;
 		while (half < length)
 		{
 			_putchar(str[half]);
