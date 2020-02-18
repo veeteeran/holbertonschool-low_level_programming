@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * _strlen = returns the length of a string
+ * _strlen - returns the length of a string
  * @s: the string to check
  *
  * Return: the length of a string as an int
