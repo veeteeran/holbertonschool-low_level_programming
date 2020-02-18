@@ -30,6 +30,15 @@ void puts_half(char *str)
 
 	if (half % 2 != 0)
 	{
+		half = ((length - 1) / 2);
+		while (half < length)
+		{
+			_putchar(str[half]);
+			half++;
+		}
+	}
+	else
+	{
 		while (half < length)
 		{
 			_putchar(str[half]);
