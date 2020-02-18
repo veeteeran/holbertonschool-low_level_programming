@@ -10,6 +10,9 @@
 void print_array(int *a, int n)
 {
 	int index;
+	
+	if (a == NULL)
+		return;
 
 	index = 0;
 	for (index = 0; index < n; index++)
