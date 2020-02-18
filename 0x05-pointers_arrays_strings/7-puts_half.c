@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * _strlen - returns the length of a string
  * @s: the string to check
@@ -28,7 +27,6 @@ void puts_half(char *str)
 
 	length = _strlen(str) - 1;
 	half = length / 2;
-	printf("Length: %d half: %d\n", length, half);
 	if (half % 2 != 0)
 	{
 		half = (length - 1) / 2;
