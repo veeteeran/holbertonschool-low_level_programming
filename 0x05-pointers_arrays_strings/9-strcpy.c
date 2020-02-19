@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * _strcpy - copy str and null byte pointed to by src to buffer pointed to by dest
+ * _strcpy - copy str and null byte from src to dest
  * @dest: the copy of the string
  * @src: the string to copy
  *
