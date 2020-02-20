@@ -29,13 +29,21 @@ char *_strncpy(char *dest, char *src, int n)
 	int count = 0;
 	int len_src = _strlen(src);
 
-	while (count < len_src)
+	if (len_src > n)
 	{
-		dest[count] = src[count];
-		count++;
+		while (count < n)
+		{
+			dest[count] = src[count];
+			count++;
+		}
 	}
-	if (len_src < n)
+	else
 	{
+		while (src[count] != 0)
+		{
+			dest[count] = src[count];
+			count++;
+		}
 		while (count < n)
 		{
 			dest[count] = '\0';
