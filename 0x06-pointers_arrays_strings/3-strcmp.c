@@ -17,7 +17,7 @@ int _strlen(char *s)
 }
 
 /**
- * strcmp - compares 2 strings
+ * _strcmp - compares 2 strings
  * @s1: first string to compare
  * @s2: second string to compare
  *
