@@ -18,7 +18,8 @@ char *_strcat(char *dest, char *src)
 	}
 
 	counter = 0;
-	while (dest[counter] != 0)
+	/* does this need to be src or dest? */
+	while (src[counter] != 0)
 	{
 		dest[dest_index] = src[counter];
 		dest_index++;
