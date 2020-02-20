@@ -25,11 +25,12 @@ int _strlen(char *s)
  */
 int _strcmp(char *s1, char *s2)
 {
-	int len_s1, len_s2, larger, index;
+	int index = 0;
 	int sum = 0;
+	int len_s1 = _strlen(s1);
+	int len_s2 = _strlen(s2);
+	int larger;
 
-	len_s1 = _strlen(s1);
-	len_s2 = _strlen(s2);
 	if (len_s1 > len_s2)
 	{
 		larger = len_s1;
@@ -39,7 +40,6 @@ int _strcmp(char *s1, char *s2)
 		larger = len_s2;
 	}
 
-	index = 0;
 	while (index < larger)
 	{
 		if (s1[index] == s2[index])
