@@ -18,7 +18,7 @@ int _atoi(char *s)
 	{
 		if (s[ndx] == '-')
 			negative++;
-		else if(s[ndx] >= '0' && s[ndx] <= '9')
+		else if (s[ndx] >= '0' && s[ndx] <= '9')
 			digit = 1;
 		ndx++;
 	}
