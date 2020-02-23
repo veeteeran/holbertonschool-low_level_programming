@@ -28,7 +28,11 @@ int main(void)
 		{
 			printf("%.Lf", front_next);
 			if (back_next < 9999999)
+			{
+				if (back_next < 999999)
+					printf("0");
 				printf("0%d", back_next);
+			}
 			else
 				printf("%d", back_next);
 		}
