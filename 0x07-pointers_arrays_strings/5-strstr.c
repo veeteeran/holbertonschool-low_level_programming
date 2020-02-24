@@ -11,10 +11,8 @@ char *_strstr(char *haystack, char *needle)
 	int h_ndx, n_ndx;
 	char *point;
 
-	if (*needle == ' ')
-		return (haystack);
-	else if (needle == '\0')
-		return ('\0');
+	if (needle[0] == '\0')
+		return (&haystack[0]);
 
 	h_ndx = 0;
 	while (haystack[h_ndx] != '\0')
