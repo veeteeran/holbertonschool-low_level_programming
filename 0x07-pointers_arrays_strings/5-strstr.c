@@ -9,12 +9,14 @@
 char *_strstr(char *haystack, char *needle)
 {
 	int h_ndx, n_ndx;
+	int *point;
 
 	h_ndx = 0;
 	while (haystack[h_ndx] != '\0')
 	{
 		if (haystack[h_ndx] == needle[0])
 		{
+			p = &haystack[h_ndx];
 			h_ndx += 1;
 			n_ndx = 1;
 			while (needle[n_ndx] != '\0')
