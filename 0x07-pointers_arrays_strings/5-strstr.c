@@ -9,14 +9,19 @@
 char *_strstr(char *haystack, char *needle)
 {
 	int h_ndx, n_ndx;
-	int *point;
+	char *point;
+
+	if (*needle == ' ')
+		return (haystack);
+	else if (needle == '\0')
+		return ('\0');
 
 	h_ndx = 0;
 	while (haystack[h_ndx] != '\0')
 	{
 		if (haystack[h_ndx] == needle[0])
 		{
-			p = &haystack[h_ndx];
+			point = &haystack[h_ndx];
 			h_ndx += 1;
 			n_ndx = 1;
 			while (needle[n_ndx] != '\0')
@@ -26,14 +31,10 @@ char *_strstr(char *haystack, char *needle)
 					h_ndx++;
 					n_ndx++;
 					if (needle[n_ndx + 1] == '\0')
-					{
-						return (&needle[0]);
-					}
+						return (point);
 				}
 				else
-				{
 					break;
-				}
 			}
 		}
 		h_ndx++;
