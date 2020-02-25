@@ -4,7 +4,6 @@
  * print_diagsums - prints sum of square matrix of ints
  * @a: row in matrix
  * @size: size of the square
-
  */
 void print_diagsums(int *a, int size)
 {
