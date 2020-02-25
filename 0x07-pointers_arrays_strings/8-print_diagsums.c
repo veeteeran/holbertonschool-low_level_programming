@@ -9,9 +9,9 @@
 void print_diagsums(int *a, int size)
 {
 	int sum1, sum2, rows, cols;
-	
+
 	rows = cols = sum1 = sum2 = 0;
-	
+
 	while (rows < size)
 	{
 		sum1 += *(a + (size * rows) + cols);
