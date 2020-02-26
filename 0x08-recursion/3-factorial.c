@@ -1,10 +1,22 @@
 #include "holberton.h"
 /**
+ * factorial - return the factorial of a given number
+ * @n: the number to factorialize
  *
- *
- *
+ * Return: the factorial or -1 if n less than 0
  */
-void name(void)
+int factorial(int n)
 {
-	return (0);
+	if (n > 0)
+	{
+		return n * factorial(n - 1);
+	}
+	else if (n == 0)
+	{
+		return (1);
+	}
+	else
+	{
+		return (-1);
+	}
 }
