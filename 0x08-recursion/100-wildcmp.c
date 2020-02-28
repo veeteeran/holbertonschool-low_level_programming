@@ -56,9 +56,10 @@ char *move_s2(char *s2)
 	return (s2);
 }
 /**
+ * all_stars - checks to see is string is all asterisks
+ * @s2: the string to check
  *
- *
- *
+ * Return: 1 if true 0 otherwise
  */
 int all_stars (char *s2)
 {
