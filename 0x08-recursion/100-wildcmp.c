@@ -13,14 +13,17 @@ int wildcmp(char *s1, char *s2)
 {
 	if (*s1 == '\0' && *s2 == '\0')
 		return (1);
-	else if (*s1 == '\0' || *s2 == '\0')
-		return (0);
 	else if (*s2 == '*')
 	{
 		if (all_stars(s2))
+		{
 			return (1);
-		s2 = move_s2(s2);
-		s1 = move_s1(s1, s2);
+		}
+		else
+		{
+			s2 = move_s2(s2);
+			s1 = move_s1(s1, s2);
+		}
 	}
 
 	if (*s1 == *s2)
@@ -30,6 +33,7 @@ int wildcmp(char *s1, char *s2)
 /**
  * move_s1 - moves through string
  * @s1: the string to move through
+ * @s2: the string to compare against
  *
  * Return: pointer to location in the string
  */
@@ -61,7 +65,7 @@ char *move_s2(char *s2)
  *
  * Return: 1 if true 0 otherwise
  */
-int all_stars (char *s2)
+int all_stars(char *s2)
 {
 	if (*s2 == '\0')
 		return (1);
