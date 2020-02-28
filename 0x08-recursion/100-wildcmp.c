@@ -1,4 +1,7 @@
 #include "holberton.h"
+char *move_s1(char *s1, char *s2);
+char *move_s2(char *s2);
+int all_stars(char *s2);
 /**
  * wildcmp - compares two strings
  * @s1: the regular string
@@ -8,9 +11,60 @@
  */
 int wildcmp(char *s1, char *s2)
 {
-	if (s1 == '\0' && s2 == '\0')
+	if (*s1 == '\0' && *s2 == '\0')
 		return (1);
-	if (s1 == s2)
-		return (wildcmp(s1 + 1, s2 + 2));
+	else if (*s1 == '\0' || *s2 == '\0')
+		return (0);
+	else if (*s2 == '*')
+	{
+		if (all_stars(s2))
+			return (1);
+		s2 = move_s2(s2);
+		s1 = move_s1(s1, s2);
+	}
+
+	if (*s1 == *s2)
+		return (wildcmp(s1 + 1, s2 + 1));
+	return (0);
+}
+/**
+ * move_s1 - moves through string
+ * @s1: the string to move through
+ *
+ * Return: pointer to location in the string
+ */
+char *move_s1(char *s1, char *s2)
+{
+	if (*s1 == '\0')
+		return (s1);
+	else if (*s1 != *s2)
+		return (move_s1(s1 + 1, s2));
+	return (s1);
+}
+/**
+ * move_s2 - moves through the string
+ * @s2: the string to move through
+ *
+ * Return: pointer to location in the string
+ */
+char *move_s2(char *s2)
+{
+	if (*s2 == '\0')
+		return (s2);
+	else if (*s2 == '*')
+		return (move_s2(s2 + 1));
+	return (s2);
+}
+/**
+ *
+ *
+ *
+ */
+int all_stars (char *s2)
+{
+	if (*s2 == '\0')
+		return (1);
+	else if (*s2 == '*')
+		return (all_stars(s2 + 1));
 	return (0);
 }
