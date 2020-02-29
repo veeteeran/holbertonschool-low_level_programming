@@ -11,9 +11,11 @@ int main(int argc, char *argv[])
 {
 	int index, result = 1;
 
-	if (argc != 2)
+	if (argc != 3)
+	{
 		printf("Error\n");
 		return (1);
+	}
 	else
 	{
 		for (index = 1; index < argc; index++)
