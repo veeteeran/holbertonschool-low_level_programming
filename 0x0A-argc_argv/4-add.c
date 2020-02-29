@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 /**
  * main - adds positive numbers
  * @argc: the number of args passed to main
@@ -9,7 +11,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int index, sum = 0;
+	int index, jndx, len, digit, sum = 0;
 
 	if (argc == 1)
 		printf("0\n");
@@ -17,12 +19,17 @@ int main(int argc, char *argv[])
 	{
 		for (index = 1; index < argc; index++)
 		{
-			if (*argv[index] < '0' || *argv[index] > '9')
+			len = strlen(argv[index]);
+			for (jndx = 0; jndx < len; jndx++)
 			{
-				printf("Error\n");
-				return (1);
+				digit = argv[index][jndx];
+				if (!isdigit(digit))
+				{
+					printf("Error\n");
+					return (1);
+				}
 			}
-			else if (atoi(argv[index]) < 0)
+			if (atoi(argv[index]) < 0)
 			{
 				continue;
 			}
