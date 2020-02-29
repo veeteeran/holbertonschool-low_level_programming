@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
  * main - prints all arugments it receives on its own line
- *
- *
+ * @argc: the number of args passed to main
+ * @argv: the string representaion of args
  *
  * Return: Always 0 (Success)
  */
