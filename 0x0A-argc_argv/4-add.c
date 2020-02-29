@@ -10,6 +10,7 @@
 int main(int argc, char *argv[])
 {
 	int index, sum = 0;
+
 	if (argc == 1)
 		printf("0\n");
 	else
