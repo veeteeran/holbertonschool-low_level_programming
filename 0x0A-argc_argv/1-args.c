@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
  * main - Entry point prints number of args passed to it
- *
- *
+ * @argc: the number of args passed to main
+ * @argv: the string representaion of args
  *
  * Return: 0 on success
  */
