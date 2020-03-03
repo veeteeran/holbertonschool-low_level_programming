@@ -1,6 +1,5 @@
 #include <stdlib.h>
 int _strlen(char *s);
-
 /**
  * str_concat - concatenates two strings
  * @s1: string concatenated to
@@ -12,7 +11,6 @@ char *str_concat(char *s1, char *s2)
 {
 	char *ptr;
 	int len1, len2, len3, ndx1, ndx2;
-
 	/* if NULL passed treat as empty string */
 	if (s1 == NULL)
 	{
@@ -34,7 +32,6 @@ char *str_concat(char *s1, char *s2)
 	{
 		return (NULL);
 	}
-
 	ndx1 = 0;
 	while (s1[ndx1])
 	{
@@ -66,27 +63,4 @@ int _strlen(char *s)
 		continue;
 	}
 	return (counter);
-}
-
-char *_strdup(char *str)
-{
-	char *ptr;
-	int len, ndx;
-
-	len = _strlen(str);
-
-	ptr = malloc(len * sizeof(char));
-	if (ptr == NULL)
-	{
-		return (NULL);
-	}
-
-	ndx = 0;
-	while (str[ndx] != '\0')
-	{
-		ptr[ndx] = str[ndx];
-		ndx++;
-	}
-	ptr[ndx] = '\0';
-	return (ptr);
 }
