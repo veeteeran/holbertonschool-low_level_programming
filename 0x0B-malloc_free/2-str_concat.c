@@ -19,8 +19,6 @@ char *str_concat(char *s1, char *s2)
 	len2 = _strlen(s2) + 1;
 	/* adds lens together - 1 gets total len of concat string */
 	len3 = (len1 + len2) - 1;
-
-	/* possibly change ordering here */
 	ptr = (char *) malloc(len3 * sizeof(char));
 	if (ptr == NULL)
 	{
@@ -29,30 +27,28 @@ char *str_concat(char *s1, char *s2)
 	/* if NULL passed treat as empty string */
 	else if (s1 == NULL)
 	{
-		s1 = "";
+		s1 = malloc(1);
+		*s1 = '\0';
 	}
 	else if (s2 == NULL)
 	{
-		s2 = "";
-		ptr = _strdup(s1);
+		s2 = malloc(1);
+		*s2 = '\0';
 	}
-	else
-	{
-		ndx1 = 0;
-		while (ndx1 < len1)
-		{
-			ptr[ndx1] = s1[ndx1];
-			ndx1++;
-		}
 
-		ndx1--;
-		ndx2 = 0;
-		while (ndx2 < len2)
-		{
-			ptr[ndx1] = s2[ndx2];
-			ndx1++;
-			ndx2++;
-		}
+	ndx1 = 0;
+	while (s1[ndx1])
+	{
+		ptr[ndx1] = s1[ndx1];
+		ndx1++;
+	}
+	ndx1--;
+	ndx2 = 0;
+	while (ndx2 < len2)
+	{
+		ptr[ndx1] = s2[ndx2];
+		ndx1++;
+		ndx2++;
 	}
 	return (ptr);
 }
