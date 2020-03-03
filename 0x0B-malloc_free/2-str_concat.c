@@ -1,6 +1,5 @@
 #include <stdlib.h>
 int _strlen(char *s);
-char *_strdup(char *str);
 
 /**
  * str_concat - concatenates two strings
