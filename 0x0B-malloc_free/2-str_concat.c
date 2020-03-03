@@ -25,12 +25,12 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 	}
 	/* if NULL passed treat as empty string */
-	else if (s1 == NULL)
+	if (s1 == NULL)
 	{
 		s1 = malloc(1);
 		*s1 = '\0';
 	}
-	else if (s2 == NULL)
+	if (s2 == NULL)
 	{
 		s2 = malloc(1);
 		*s2 = '\0';
@@ -42,7 +42,6 @@ char *str_concat(char *s1, char *s2)
 		ptr[ndx1] = s1[ndx1];
 		ndx1++;
 	}
-	ndx1--;
 	ndx2 = 0;
 	while (ndx2 < len2)
 	{
