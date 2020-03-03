@@ -14,6 +14,17 @@ char *str_concat(char *s1, char *s2)
 	char *ptr;
 	int len1, len2, len3, ndx1, ndx2;
 
+	/* if NULL passed treat as empty string */
+        if (s1 == NULL)
+        {
+                s1 = malloc(1);
+                *s1 = '\0';
+        }
+        if (s2 == NULL)
+        {
+                s2 = malloc(1);
+                *s2 = '\0';
+        }
 	/* get len of each string passed */
 	len1 = _strlen(s1) + 1;
 	len2 = _strlen(s2) + 1;
@@ -24,17 +35,6 @@ char *str_concat(char *s1, char *s2)
 	{
 		return (NULL);
 	}
-	/* if NULL passed treat as empty string */
-	if (s1 == NULL)
-	{
-		s1 = malloc(1);
-		*s1 = '\0';
-	}
-	if (s2 == NULL)
-	{
-		s2 = malloc(1);
-		*s2 = '\0';
-	}
 
 	ndx1 = 0;
 	while (s1[ndx1])
@@ -43,7 +43,7 @@ char *str_concat(char *s1, char *s2)
 		ndx1++;
 	}
 	ndx2 = 0;
-	while (ndx2 < len2)
+	while (ndx2 <= len2)
 	{
 		ptr[ndx1] = s2[ndx2];
 		ndx1++;
