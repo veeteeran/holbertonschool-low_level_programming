@@ -22,5 +22,6 @@ char *create_array(unsigned int size, char c)
 	{
 		ptr[ndx] = c;
 	}
+	ptr[ndx] = '\0';
 	return (ptr);
 }
