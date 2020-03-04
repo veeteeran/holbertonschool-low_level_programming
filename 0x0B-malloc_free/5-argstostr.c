@@ -10,17 +10,15 @@
 char *argstostr(int ac, char **av)
 {
 	char *ptr;
-	int ndx, jndx, k, len = 0;
+	int ndx, jndx, k = 0, len = 0;
 
-	
 	if (ac == 0)
 	{
 		return (NULL);
 	}
-
 	for (ndx = 0; ndx < ac; ndx++)
 	{
-		if (av[ndx] == 0)
+		if (av[ndx] == '\0')
 		{
 			return (NULL);
 		}
@@ -28,29 +26,23 @@ char *argstostr(int ac, char **av)
 			continue;
 		len += jndx + 1;
 	}
-
-	ptr = (char *) malloc(len * sizeof(char) + 1);
+	ptr = (char *) malloc((len * sizeof(char)) + 1);
 	if (ptr == NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
-	
 	for (ndx = 0; ndx < ac; ndx++)
 	{
 		for (jndx = 0; av[ndx][jndx]; jndx++, k++)
-		{
 			ptr[k] = av[ndx][jndx];
-		}
 		if (ndx == (ac - 1))
 		{	ptr[k] = '\n';
 			ptr[k + 1] = '\0';
 
 		}
 		else
-		{
 			ptr[k] = '\n';
-		}
 		k++;
 	}
 	return (ptr);
