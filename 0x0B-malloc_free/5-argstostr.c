@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdlib.h>
-int _strlen(char *s);
 /**
  * argstostr - concatenates all the arguments of your program
  * @ac: argument count
@@ -11,21 +10,26 @@ int _strlen(char *s);
 char *argstostr(int ac, char **av)
 {
 	char *ptr;
-	int ndx, jndx, len;
+	int ndx, jndx, k, len = 0;
 
 	
-	if (ac == 0 || av == NULL)
+	if (ac == 0)
 	{
 		return (NULL);
 	}
 
-	len = ac;
 	for (ndx = 0; ndx < ac; ndx++)
 	{
-		len += _strlen(av[ndx]);
+		if (av[ndx] == 0)
+		{
+			return (NULL);
+		}
+		for (jndx = 0; av[ndx][jndx]; jndx++)
+			continue;
+		len += jndx + 1;
 	}
 
-	ptr = (char *) malloc(len * sizeof(char));
+	ptr = (char *) malloc(len * sizeof(char) + 1);
 	if (ptr == NULL)
 	{
 		free(ptr);
@@ -34,36 +38,20 @@ char *argstostr(int ac, char **av)
 	
 	for (ndx = 0; ndx < ac; ndx++)
 	{
-		for (jndx = 0; jndx < av[ndx]; jndx++)
+		for (jndx = 0; av[ndx][jndx]; jndx++, k++)
 		{
-			ptr[ndx] = av[ndx][jndx];
-			if (ndx == ac -1)
-			{
-				ptr[ndx] = '\0';
-				ptr[ndx + 1] = '\n';
-			}
-			else
-			{
-				ptr[ndx] = '\n';
-			}
+			ptr[k] = av[ndx][jndx];
 		}
+		if (ndx == (ac - 1))
+		{	ptr[k] = '\n';
+			ptr[k + 1] = '\0';
+
+		}
+		else
+		{
+			ptr[k] = '\n';
+		}
+		k++;
 	}
 	return (ptr);
-}
-
-/**
- * _strlen - returns the length of a string
- * @s: the string to check
- *
- * Return: the length of a string as an int
- */
-int _strlen(char *s)
-{
-	int counter;
-
-	for (counter = 0; s[counter] != '\0'; counter++)
-	{
-		continue;
-	}
-	return (counter);
 }
