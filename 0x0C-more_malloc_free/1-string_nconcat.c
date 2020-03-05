@@ -22,19 +22,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	s1_len = _strlen(s1);
 	s2_len = _strlen(s2);
 	if (n <= s2_len)
-	{
-		arr = malloc(sizeof(char) * (s1_len + n + 1));
-		if (arr == NULL)
-		{
-			free(arr);
-			return (NULL);
-		}
-		_strcpy(arr, s1);
-		_strncat(arr, s2, n);
-		return (arr);
-	}
+		n = s2_len;
 
-	arr = malloc(sizeof(char) * (s1_len + s2_len + 1));
+	arr = malloc(sizeof(char) * (s1_len + n + 1));
 	if (arr == NULL)
 	{
 		free(arr);
