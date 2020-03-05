@@ -5,7 +5,7 @@
  * @min: minimum int, start array
  * @max: maximum int, end of array inclusive
  *
- * Return: pointer to newly created array 
+ * Return: pointer to newly created array
  */
 int *array_range(int min, int max)
 {
