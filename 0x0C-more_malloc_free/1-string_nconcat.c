@@ -11,6 +11,7 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *arr;
+	unsigned int i;
 	unsigned int s1_len;
 	unsigned int s2_len;
 
@@ -21,17 +22,23 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	s1_len = _strlen(s1);
 	s2_len = _strlen(s2);
-	if (n >= s2_len)
-		n = s2_len;
+	if (n <= s2_len)
+		s2_len = n;
 
-	arr = malloc(sizeof(char) * (s1_len + n + 1));
+	arr = malloc(sizeof(char) * (s1_len + s2_len + 1));
+	
 	if (arr == NULL)
 	{
 		free(arr);
 		return (NULL);
 	}
 	_strcpy(arr, s1);
-	_strncat(arr, s2, n);
+	
+	for (i = 0; i <= s2_len; i++)
+	{
+		arr[s1_len + i] = s2[i];
+	}
+	arr[s1_len + s2_len + 1] = '\0';
 	return (arr);
 }
 
@@ -68,45 +75,6 @@ char *_strcpy(char *dest, char *src)
 		*(dest + index) = *(src + index);
 	}
 	*(dest + index) = '\0';
-
-	return (dest);
-}
-
-/**
- * _strncat - concatenates two strings, at most n bytes from source
- * @dest: string appended to
- * @src: string to append to dest
- * @n: number of bytes from src
- *
- * Return: concatenated string
- */
-char *_strncat(char *dest, char *src, int n)
-{
-	int start = _strlen(dest);
-	int len_src = _strlen(src);
-	int index = 0;
-
-	if (len_src < n)
-	{
-		while (len_src > 0)
-		{
-			dest[start] = src[index];
-			start++;
-			index++;
-			len_src--;
-		}
-		dest[start] = '\0';
-	}
-	else
-	{
-		while (n > 0)
-		{
-			dest[start] = src[index];
-			start++;
-			index++;
-			n--;
-		}
-	}
 
 	return (dest);
 }
