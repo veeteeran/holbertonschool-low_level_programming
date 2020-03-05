@@ -26,19 +26,18 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2_len = n;
 
 	arr = malloc(sizeof(char) * (s1_len + s2_len + 1));
-	
 	if (arr == NULL)
 	{
 		free(arr);
 		return (NULL);
 	}
+
 	_strcpy(arr, s1);
-	
-	for (i = 0; i <= s2_len; i++)
+	for (i = 0; i < s2_len; i++)
 	{
 		arr[s1_len + i] = s2[i];
 	}
-	arr[s1_len + s2_len + 1] = '\0';
+	arr[s1_len + s2_len] = '\0';
 	return (arr);
 }
 
