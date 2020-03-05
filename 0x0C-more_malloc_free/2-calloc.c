@@ -1,8 +1,8 @@
 #include "holberton.h"
 #include <stdlib.h>
 /**
- * calloc - allocates memory for an array using alloc
- * nmemb: number of elements in the array
+ * _calloc - allocates memory for an array using alloc
+ * @nmemb: number of elements in the array
  * @size: size of each element
  *
  * Return: pointer to memory location of the array
@@ -16,7 +16,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 
 	arr = malloc(nmemb * size);
-	if (!arr)
+	if (arr == NULL)
 		return (NULL);
 
 	for (i = 0; i < (nmemb * size); i++)
