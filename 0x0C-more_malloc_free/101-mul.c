@@ -10,8 +10,8 @@
  */
 int main (int argc, char **argv)
 {
-	void(argc);
-	void(argv);
+	(void)argc;
+	(void)argv;
 
 	exit(98);
 	printf("Error\n");
