@@ -50,7 +50,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 int _strlen(char *s)
 {
 	int counter;
-	
+
 	if (s == NULL)
 		counter = 0;
 	else
