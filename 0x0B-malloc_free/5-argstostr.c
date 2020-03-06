@@ -38,11 +38,9 @@ char *argstostr(int ac, char **av)
 	}
 	/* Loop counter for each argument */
 	for (ndx = 0; ndx < ac; ndx++)
-	{	/* Control loop for each index in newly allocated
-		 * array and each arg
-		 */
+	{	/* Loop thru each slot of new malloced area and each arg */
 		for (jndx = 0; av[ndx][jndx]; jndx++, k++)
-			/* Assign each letter of each arg to each index in ptr*/
+			/* Assign each letter of each arg to each index in ptr */
 			ptr[k] = av[ndx][jndx];
 		/* Add a newline followed by null byte after last character */
 		if (ndx == (ac - 1))
