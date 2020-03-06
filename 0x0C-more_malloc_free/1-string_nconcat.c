@@ -50,10 +50,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 int _strlen(char *s)
 {
 	int counter;
-
-	while (*s++)
+	
+	if (s == NULL)
+		counter = 0;
+	else
 	{
-		counter++;
+		for (counter = 0; s[counter] != '\0'; counter++)
+		{
+			continue;
+		}
 	}
 	return (counter);
 }
