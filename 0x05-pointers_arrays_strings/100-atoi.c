@@ -10,8 +10,6 @@ int _atoi(char *s)
 	int digit = 0, num = 0, b_10 = 1;
 	int start, end, ndx = 0, negative = 0;
 
-	if (s[ndx] == '\0')
-		return (0);
 	while (s[ndx] && !(digit))
 	{
 		if (s[ndx] == '-')
@@ -41,5 +39,5 @@ int _atoi(char *s)
 	}
 	if (negative != 0 && negative % 2 != 0)
 		num *= -1;
-	return (0 + num);
+	return (num);
 }
