@@ -8,7 +8,7 @@
  *
  * Description: The struct contains basic information about a dog
  */
-struct dog
+typedef struct dog_t
 {
 	char *name;
 	float age;
