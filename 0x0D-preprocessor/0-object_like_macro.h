@@ -1,4 +1,7 @@
+#ifndef ZERO
 #define ZERO "0-"
+
+#endif /* ZERO */
 
 #ifndef ZEROOBJECT_LIKE_MACRO_H
 #define ZEROOBJECT_LIKE_MACRO_H
