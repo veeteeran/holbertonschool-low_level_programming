@@ -6,7 +6,7 @@
  * @age: age of dog
  * @owner: name of owner
  *
- * Description: The struct contains basic information anout a dog
+ * Description: The struct contains basic information about a dog
  */
 struct dog
 {
@@ -15,4 +15,5 @@ struct dog
 	char *owner;
 };
 
+void init_dog(struct dog *d, char *name, float age, char *owner);
 #endif /* DOG_H */
