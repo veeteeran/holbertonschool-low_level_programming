@@ -7,7 +7,7 @@
  * @owner: name of owner
  *
  * Description: The struct contains basic information anout a dog
- */ 
+ */
 struct dog
 {
 	char *name;
