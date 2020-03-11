@@ -1,3 +1,4 @@
+#include <stdlib.h>
 /**
  * int_index - searches for an int
  * @array: search for int in this array
