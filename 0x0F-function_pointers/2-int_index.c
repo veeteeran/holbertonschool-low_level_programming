@@ -1,10 +1,22 @@
-#include "holberton.h"
 /**
+ * int_index - searches for an int
+ * @array: search for int in this array
+ * @size: size of array
+ * @cmp: pointer to function to compare values
  *
- *
- *
+ * Return: first index of matched int, -1 if no match or size is < 0
  */
-void name(void)
+int int_index(int *array, int size, int (*cmp)(int))
 {
-	return (0);
+	int i;
+
+	if (size <= 0)
+		return (-1);
+
+	for (i = 0; i < size; i++)
+	{
+		if (cmp(array[i]) != 0)
+			return (i);
+	}
+	return (-1);
 }
