@@ -33,10 +33,7 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(100);
 	}
-	else
-	{
-		printf("%d\n", fptr(a, b));
 
-	}
+	printf("%d\n", fptr(a, b));
 	return (0);
 }
