@@ -2,6 +2,8 @@
 #include <string.h>
 /**
  * main - Entry point
+ * @argc: number of arguments
+ * @argv: array of arguments passed
  *
  * Return: 0
  */
