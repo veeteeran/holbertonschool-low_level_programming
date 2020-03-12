@@ -21,20 +21,20 @@ int main(int argc, char **argv)
 	}
 
 	fptr = get_op_func(argv[2]);
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
 	if (fptr == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	else if ((!(strcmp(argv[2], "/")) || (!(strcmp(argv[2], "%")) && (!(strcmp(argv[3], "0"))))))
+	else if ((!strcmp(argv[2],"/") || !strcmp(argv[2],"%")) && b == 0)
 	{
 		printf("Error\n");
 		exit(100);
 	}
 	else
 	{
-		a = atoi(argv[1]);
-		b = atoi(argv[3]);
 		printf("%d\n", fptr(a, b));
 
 	}
