@@ -4,13 +4,12 @@
 /**
  * get_op_func - selects correct function to perform operation
  * @s: operator passed to program
- * 
+ *
  * Return: pointer to function of corresponding operator
  */
 int (*get_op_func(char *s))(int, int)
 {
-	op_t ops[] =
-	{
+	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
 		{"*", op_mul},
