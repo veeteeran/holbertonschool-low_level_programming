@@ -10,7 +10,7 @@
  * @c: format char
  * @fptr: function to print
  */
-typedef struct format 
+typedef struct format
 {
 	char *s;
 	void (*fptr)(va_list);
