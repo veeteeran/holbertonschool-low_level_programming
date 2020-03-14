@@ -16,7 +16,7 @@ void print_all(const char * const format, ...)
 		{"i", print_int},
 		{"f", print_float},
 		{"s", print_str},
-		{"NULL", NULL}
+		{NULL, NULL}
 	};
 	va_list vl;
 	int i, j;
@@ -29,14 +29,15 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (types[j].s)
 		{
-			if (format[i] == *(types[j].s)
-)
+			if (*(types[j].s) == format[i])
+			{
 				types[j].fptr(vl);
+				if (format[i] != '\0')
+					printf("%s", separator);
+			}
 			j++;
 		}
 		i++;
-		if (format[i] != '\0')
-			printf("%s", separator);
 	}
 	va_end(vl);
 	printf("\n");
