@@ -13,17 +13,17 @@ void print_str(va_list);
 void print_all(const char * const format, ...)
 {
 	fmt_t types[] = {
-		{"c", print_char},
-		{"i", print_int},
-		{"f", print_float},
-		{"s", print_str},
-		{NULL, NULL}
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_str},
+		{'\0', NULL}
 	};
 	va_list vl;
 	int i, j, len;
-	char *str;
+	char *ptr;
 
-	len = _strlen(format);
+	len = _strlen(format) + 1;
 	printf("%d\n", len);
 	va_start(vl, format);
 	i = 0;
@@ -31,14 +31,15 @@ void print_all(const char * const format, ...)
 	while (i < len)
 	{
 		printf("entering loop\n");
-		str = va_arg(vl, char *);
-		printf("%s\n", str);
-		if (str == NULL)
+		printf("Format[%d]: %c\n", i, format[i]);
+		ptr = va_arg(vl, char *);
+		printf("%s\n", ptr);
+		if (ptr == NULL)
 			printf("(nil)");
 		j = 0;
-		while (types[j].c != NULL)
+		while (types[j].c != '\0')
 		{
-			if (strcmp(str, types[j].c) == 0)
+			if (format[i] == types[j].c)
 				types[j].fptr(vl);
 			j++;
 		}
