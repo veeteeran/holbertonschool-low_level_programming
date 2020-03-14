@@ -20,6 +20,7 @@ void print_all(const char * const format, ...)
 	};
 	va_list vl;
 	int i, j;
+	char *separator = ", ";
 
 	va_start(vl, format);
 	i = 0;
@@ -34,6 +35,8 @@ void print_all(const char * const format, ...)
 			j++;
 		}
 		i++;
+		if (format[i] != '\0')
+			printf("%s", separator);
 	}
 	va_end(vl);
 	printf("\n");
