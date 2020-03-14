@@ -7,7 +7,7 @@
 #include <string.h>
 /**
  * struct format - print formats
- * @c: format char
+ * @s: format char
  * @fptr: function to print
  */
 typedef struct format
