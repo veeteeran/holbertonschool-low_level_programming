@@ -1,5 +1,4 @@
 #include "variadic_functions.h"
-int _strlen(const char * const s);
 void print_char(va_list);
 void print_int(va_list);
 void print_float(va_list);
@@ -13,61 +12,33 @@ void print_str(va_list);
 void print_all(const char * const format, ...)
 {
 	fmt_t types[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_str},
-		{'\0', NULL}
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_str},
+		{"NULL", NULL}
 	};
 	va_list vl;
-	int i, j, len;
-	char *ptr;
+	int i, j;
 
-	len = _strlen(format) + 1;
-	printf("%d\n", len);
 	va_start(vl, format);
 	i = 0;
-	printf("Outside outer loop\n");
-	while (i < len)
+	while (format[i])
 	{
-		printf("entering loop\n");
-		printf("Format[%d]: %c\n", i, format[i]);
-		ptr = va_arg(vl, char *);
-		printf("%s\n", ptr);
-		if (ptr == NULL)
-			printf("(nil)");
 		j = 0;
-		while (types[j].c != '\0')
+		while (types[j].s)
 		{
-			if (format[i] == types[j].c)
+			if (format[i] == *(types[j].s)
+)
 				types[j].fptr(vl);
 			j++;
 		}
 		i++;
 	}
 	va_end(vl);
+	printf("\n");
 }
 
-/**
- * @s: the string to check
- *
- * Return: the length of a string as an int
- */
-int _strlen(const char * const s)
-{
-	int counter;
-
-	if (s == NULL)
-		counter = 0;
-	else
-	{
-		for (counter = 0; s[counter] != '\0'; counter++)
-		{
-			continue;
-		}
-	}
-	return (counter);
-}
 /**
  * print_char - the char to print
  * @s: the char to print
