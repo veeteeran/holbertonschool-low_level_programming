@@ -21,22 +21,20 @@ void print_all(const char * const format, ...)
 	};
 	va_list vl;
 	int i, j;
-	char *separator = ", ";
+	char *separator = "";
 
 	va_start(vl, format);
 	i = 0;
-	while (format[i])
+	while (format && format[i])
 	{
 		j = 0;
 		while (types[j].s)
 		{
 			if (*(types[j].s) == format[i])
 			{
+				printf("%s", separator);
 				types[j].fptr(vl);
-				if (format[i + 1] != '\0')
-				{
-					printf("%s", separator);
-				}
+				separator = ", ";
 			}
 			j++;
 		}
