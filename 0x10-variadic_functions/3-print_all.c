@@ -3,6 +3,7 @@ void print_char(va_list);
 void print_int(va_list);
 void print_float(va_list);
 void print_str(va_list);
+void print_nil(va_list);
 /**
  * print_all - prints anything
  * @format: list of types of arguments passed to the function
@@ -33,7 +34,9 @@ void print_all(const char * const format, ...)
 			{
 				types[j].fptr(vl);
 				if (format[i + 1] != '\0')
+				{
 					printf("%s", separator);
+				}
 			}
 			j++;
 		}
@@ -81,5 +84,11 @@ void print_float(va_list args)
  */
 void print_str(va_list args)
 {
-	printf("%s", va_arg(args, char *));
+	char *ptr;
+
+	ptr = va_arg(args, char *);
+	if (ptr == NULL)
+		ptr = "(nil)";
+
+	printf("%s", ptr);
 }
