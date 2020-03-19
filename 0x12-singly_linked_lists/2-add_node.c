@@ -5,14 +5,12 @@ int _strlen(const char *s);
  * @head: pointer to pointer of struct
  * @str: data to enter for first member of struct
  *
- * Return: the number of elements in a linked list
+ * Return: the address of the new element at beginning of linked list
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *new
+	list_t *new = (list_t *)malloc(sizeof(list_t));
 
-	new = *head
-	new = malloc(sizeof(list_t));
 	if (new == NULL)
 		return (NULL);
 
@@ -20,8 +18,6 @@ list_t *add_node(list_t **head, const char *str)
 	new->len = _strlen(str);
 	new->next = *head;
 	*head = new;
-	if (new->str == NULL)
-		return (NULL);
 	return (new);
 }
 
