@@ -1,25 +1,18 @@
-#ifndef LISTS_H
-#define LISTS_H
-
+#include "lists.h"
 /**
- * struct list_s - singly linked list
- * @str: string - (malloc'ed string)
- * @len: length of the string
- * @next: points to the next node
+ * list_len - returns the number of elements in a linked
+ * @h: pointer to head of linked list
  *
- * Description: singly linked list node structure
- * for Holberton project
+ * Return: the number of elements in a linked list
  */
-typedef struct list_s
+size_t list_len(const list_t *h)
 {
-    char *str;
-    unsigned int len;
-    struct list_s *next;
-} list_t;
+	size_t num_elems = 0;
 
-size_t print_list(const list_t *h);
-size_t list_len(const list_t *h);
-list_t *add_node(list_t **head, const char *str);
-list_t *add_node_end(list_t **head, const char *str);
-void free_list(list_t *head);
-#endif /* LISTS_H */
+	while (h)
+	{
+		num_elems++;
+		h = h->next;
+	}
+	return (num_elems);
+}
