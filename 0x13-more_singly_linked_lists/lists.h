@@ -21,9 +21,18 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
-typedef struct list_address {
-        const listint_t *ptr;
-        struct list_address *next;
+/**
+ * struct list_address - singly linked list
+ * @ptr: pointer to a node
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure for
+ * advanced task 101
+ */
+typedef struct list_address
+{
+	const listint_t *ptr;
+	struct list_address *next;
 } list_address_t;
 
 size_t print_listint(const listint_t *h);
