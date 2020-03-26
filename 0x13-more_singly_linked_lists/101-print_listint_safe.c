@@ -1,5 +1,6 @@
 #include "lists.h"
 list_address_t *add_nodeptr(list_address_t **head, const listint_t *ptr);
+void free_list_address_ptr(list_address_t **head);
 /**
  * print_listint_safe - prints a listint_t linked list
  * @head: pointer to pointer of the first node
@@ -26,6 +27,7 @@ size_t print_listint_safe(const listint_t *head)
 			if (temp == ch_temp->ptr)
 			{
 				printf("-> [%p] %d\n", (void *)temp, temp->n);
+				free_list_address_ptr(&check_head);
 				return (node_count);
 			}
 			ch_temp = ch_temp->next;
@@ -35,6 +37,7 @@ size_t print_listint_safe(const listint_t *head)
 		add_nodeptr(&(check_head), temp);
 		temp = temp->next;
 	}
+	free_list_address_ptr(&check_head);
 	return (node_count);
 }
 
@@ -56,4 +59,26 @@ list_address_t *add_nodeptr(list_address_t **head, const listint_t *ptr)
 	new->next = *head;
 	*head = new;
 	return (new);
+}
+
+/**
+ * free_list_address_ptr - frees a list, sets the head to NULL
+ * @head: pointer to pointer of first node
+ *
+ * Return: void
+ */
+void free_list_address_ptr(list_address_t **head)
+{
+	list_address_t *temp;
+
+	if (head == NULL) /* Why head and not *head */
+		return;
+
+	while (*head)
+	{
+		temp = *head;
+		*head = temp->next;
+		free(temp);
+	}
+	*head = NULL;
 }
