@@ -1,5 +1,5 @@
 #include "holberton.h"
-unsigned long int _pow_recursion(int x, int y);
+unsigned long int _pow_recursion(unsigned long int x, int y);
 /**
  * print_binary - prints the binary representation of a number
  * @n: number to represent as binary
@@ -44,7 +44,7 @@ void print_binary(unsigned long int n)
  *
  * Return: x raised to y
  */
-unsigned long int _pow_recursion(int x, int y)
+unsigned long int _pow_recursion(unsigned long int x, int y)
 {
 	if (y > 0)
 	{
