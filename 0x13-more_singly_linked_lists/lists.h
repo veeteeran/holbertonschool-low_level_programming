@@ -50,4 +50,8 @@ listint_t *reverse_listint(listint_t **head);
 size_t print_listint_safe(const listint_t *head);
 size_t free_listint_safe(listint_t **h);
 listint_t *find_listint_loop(listint_t *head);
+list_address_t *add_nodeptr(list_address_t **head, const listint_t *ptr);
+void free_list_address_ptr(list_address_t **head);
+void free_listint3(listint_t **head, size_t node_count);
+void free_list_address_ptr2(list_address_t **head, size_t node_count);
 #endif /* LISTS_H */
