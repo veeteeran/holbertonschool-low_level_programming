@@ -42,6 +42,7 @@ size_t free_listint_safe(listint_t **h)
 /**
  * free_listint3 - frees a listint_t list, sets the head to NULL
  * @head: pointer to pointer of first node
+ * @node_count: number of nodes to free
  *
  * Return: void
  */
@@ -65,6 +66,7 @@ void free_listint3(listint_t **head, size_t node_count)
 /**
  * free_list_address_ptr2 - frees a list, sets the head to NULL
  * @head: pointer to pointer of first node
+ * @node_count: number of nodes to free
  *
  * Return: void
  */
