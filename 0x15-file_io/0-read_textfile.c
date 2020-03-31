@@ -2,6 +2,8 @@
 
 /**
  * read_textfile - read text file, prints it POSIX standard output
+ * @filename: name of file to open
+ * @letters: number of letters to read and print
  *
  * Return: num of letters read and printed, 0 on failure
  */
@@ -28,5 +30,5 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	close(fd);
 	free(buf);
-	return(wr);
+	return (wr);
 }
