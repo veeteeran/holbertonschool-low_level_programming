@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 	len = _strlen(argv[1]);
 	buf = malloc(sizeof(char) * len);
 	if (buf == NULL)
-		return (NULL);
+		return ('\0');
 	op_from = open(argv[1], O_RDONLY);
 	rd = read(op_from, buf, 1024);
 	wr = write(op_to, buf, rd);
