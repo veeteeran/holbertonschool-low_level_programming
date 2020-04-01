@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	if (op_from == -1)
 		read_err(argv[1]);
 
-	op_to = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
+	op_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	if (op_to == -1)
 		write_err(argv[2]);
