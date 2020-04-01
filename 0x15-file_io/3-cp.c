@@ -11,7 +11,8 @@ void close_err(int arg);
  */
 int main(int argc, char *argv[])
 {
-	int op_to, op_from, rd, wr;
+	int op_to, op_from;
+	ssize_t rd, wr;
 	char argc_err[] = "Usage: cp file_from file_to";
 	char *buf;
 
@@ -20,9 +21,6 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "%s\n", argc_err);
 		exit(97);
 	}
-	op_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (op_to == -1)
-		read_err(argv[2]);
 
 	buf = malloc(sizeof(char) * 1024);
 	if (buf == NULL)
@@ -32,6 +30,11 @@ int main(int argc, char *argv[])
 	op_from = open(argv[1], O_RDONLY);
 	if (op_from == -1)
 		read_err(argv[1]);
+
+	op_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+
+	if (op_to == -1)
+		write_err(argv[2]);
 
 	rd = read(op_from, buf, 1024);
 	if (rd == -1)
