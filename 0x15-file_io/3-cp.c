@@ -7,7 +7,7 @@ void close_err(int arg);
  * @argc: number of arguments
  * @argv: the arguments passed
  *
- * Return: 1 on success, -1 on failure
+ * Return: 0 on success
  */
 int main(int argc, char *argv[])
 {
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	if (op_from == -1)
 		read_err(argv[1]);
 
-	op_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	op_to = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
 
 	if (op_to == -1)
 		write_err(argv[2]);
@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 	if (close(op_from) == -1)
 		close_err(op_from);
 
-	return (1);
+	return (0);
 }
 
 /**
