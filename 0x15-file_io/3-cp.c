@@ -2,9 +2,9 @@
 int _strlen(char *str);
 #define RWRWR (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
 /**
- * append_text_to_file - appends text at the end of a file
- * @filename: name of file
- * @text_content: NULL terminated string to add
+ * main - the entry point
+ * @argc: number of arguments
+ * @argv: the arguments passed
  *
  * Return: 1 on success, -1 on failure
  */
@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
 	int op_to, op_from, rd, wr, cl_to, cl_from, len;
 	char argc_err[] = "Usage: cp file_from file_to";
 	char argv1_err[] = "Error: Can't read from file";
-	char wr_err[] = "Can't write to";
-	
+	char wr_err[] = "Error: Can't write to";
+	char cl_err[] = "Error: Can't close fd";
 	char *buf;
 
 	if (argc != 3)
@@ -29,12 +29,15 @@ int main(int argc, char *argv[])
 
 	len = _strlen(argv[1]);
 	buf = malloc(sizeof(char) * len);
+	if (buf == NULL)
+		return (NULL);
 	op_from = open(argv[1], O_RDONLY);
 	rd = read(op_from, buf, 1024);
 	wr = write(op_to, buf, rd);
 	if (op_from == -1 || rd == -1)
 	{
 		dprintf(STDERR_FILENO, "%s %s\n", argv1_err, argv[1]);
+		exit(98);
 	}
 	if (op_to == -1 || wr == -1)
 	{
@@ -46,10 +49,16 @@ int main(int argc, char *argv[])
 	cl_from = close(op_from);
 	if (cl_to == -1 || cl_from == -1)
 	{
-		dprintf(STDERR_FILENO, "%d\n", cl_to);
-		return (-1);
+		dprintf(STDERR_FILENO, "%s %d\n", cl_err, op_to);
+		exit(100);
+	}
+	if (cl_from == -1)
+	{
+		dprintf(STDERR_FILENO, "%s %d\n", cl_err, op_from);
+		exit(100);
 	}
 
+	free(buf);
 	return (1);
 }
 
