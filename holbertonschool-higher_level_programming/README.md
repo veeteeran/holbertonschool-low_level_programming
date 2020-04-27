@@ -1,1 +1,1 @@
-Holberton School trimester two, Higher level languages repo
+Holberton School trimester two, higher level languages projects
