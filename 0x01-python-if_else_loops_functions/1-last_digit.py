@@ -15,6 +15,7 @@ if was_neg:
     number *= -1
 
 print("Last digit of {:d} is {:d} ".format(number, last_digit), end='')
+abs(last_digit)
 
 if last_digit > 5:
     print("and is greater that 5")
