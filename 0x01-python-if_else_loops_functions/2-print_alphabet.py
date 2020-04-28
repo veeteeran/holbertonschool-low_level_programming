@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-def print_last_digit(number):
+for i in range(0, 26):
+    print(chr(ord('a') + i), end='')
