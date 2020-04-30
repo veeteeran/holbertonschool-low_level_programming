@@ -6,10 +6,11 @@ if __name__ == "__main__":
     length = len(argv)
     if length != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        exit (1)
-    elif argv[2] != '+' and argv[2] != '-' and argv[2] != '*' and argv[2] != '/':
+        exit(1)
+    elif (argv[2] != '+' and argv[2] != '-' and
+          argv[2] != '*' and argv[2] != '/'):
         print("Unknown operator. Available operators: +, -, * and /")
-        exit (1)
+        exit(1)
     else:
         a = int(argv[1])
         b = int(argv[3])
