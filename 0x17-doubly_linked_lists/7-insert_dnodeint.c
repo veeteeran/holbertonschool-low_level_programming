@@ -17,7 +17,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (NULL);
 	else if (idx == 0)
 	{
-		new = add_nodeint(h, n);
+		new = add_dnodeint(h, n);
 		return (new);
 	}
 	else if (idx == list_len)
