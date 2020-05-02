@@ -13,6 +13,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *new;
 	dlistint_t *temp;
 	unsigned int node_num;
+	unsigned int list_len = dlistint_len(*h);
+
+	if (idx >= list_len)
+		return (NULL);
 
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
@@ -24,22 +28,44 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	if (h == NULL)
 		return (new);
+	else if (*h == NULL)
+		*h = new;
 	else if (idx == 0)
 	{
 		new->next = *h;
 		*h = new;
 	}
-	else if (*h == NULL)
-		*h = new;
 	else
 	{
 		temp = *h;
 		for (node_num = 0; node_num < idx; node_num++)
 			temp = temp->next;
-	}
-	new->next = temp->next;
-	new->prev = temp;
-	temp->next = new;
 
+		new->next = temp;
+		new->prev = temp->prev;
+		temp = temp->prev;
+		temp->next = new;
+	}
 	return (new);
+}
+
+/**
+ * dlistint_len - counts number of elements in list
+ * @h: pointer to head of list
+ *
+ * Return: number of elements in list
+ */
+size_t dlistint_len(const dlistint_t *h)
+{
+	const dlistint_t *current;
+	size_t num_nodes = 0;
+
+	current = h;
+	while (current)
+	{
+		num_nodes++;
+		current = current->next;
+	}
+
+	return (num_nodes);
 }
