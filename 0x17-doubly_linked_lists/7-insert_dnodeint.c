@@ -10,12 +10,10 @@
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new;
-	dlistint_t *temp;
-	unsigned int node_num;
-	unsigned int list_len = dlistint_len(*h);
+	dlistint_t *new, *temp;
+	unsigned int node_num, list_len = dlistint_len(*h);
 
-	if (idx >= list_len)
+	if (idx > list_len)
 		return (NULL);
 
 	new = malloc(sizeof(dlistint_t));
