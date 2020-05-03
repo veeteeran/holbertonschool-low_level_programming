@@ -9,10 +9,10 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *temp, *current;
-	unsigned int node_num, list_len = dlistint_len(*head);
+	dlistint_t *temp;
+	unsigned int node_num;
 
-	if (*head == NULL || index > list_len)
+	if (*head == NULL || head == NULL)
 		return (-1);
 
 	temp = *head;
@@ -29,24 +29,20 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		return (1);
 	}
 
-	for (node_num = 0; node_num < index; node_num++)
-		if (node_num < list_len - 1)
-			temp = temp->next;
+	for (node_num = 0; node_num < index; node_num++, temp = temp->next)
+		if (temp->next == NULL)
+			return (-1);
 
-	/*think I fixed the delete end node issue with above condition*/
-	if (index == list_len)
+	if (temp->next == NULL)
 	{
-		current = temp->prev;
-		current->next = NULL;
+		temp->prev->next = NULL;
 		free(temp);
 	}
 	else
 	{
-		current = temp->next;
-		temp = temp->prev;
-		free(temp->next);
-		temp->next = current;
-		current->prev = temp;
+		temp->next->prev = temp->prev;
+		temp->prev->next = temp->next;
+		free(temp);
 	}
 	return (1);
 }
