@@ -15,7 +15,6 @@ void hash_table_delete(hash_table_t *ht)
 	{
 		if (ht->array[index] != NULL)
 			free_list(ht->array[index]);
-		
 	}
 	free(ht->array);
 	free(ht);
