@@ -24,7 +24,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	{
 		if (strcmp(key, temp->key) == 0)
 		{
-			value = ht->array[index]->value;
+			value = temp->value;
 			break;
 		}
 	}
