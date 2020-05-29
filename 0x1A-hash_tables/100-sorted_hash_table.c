@@ -1,5 +1,5 @@
 #include "hash_tables.h"
-
+void free_list(shash_node_t *head);
 /**
  * shash_table_create - create a hash table
  * @size: size of the array
@@ -9,7 +9,7 @@
 shash_table_t *shash_table_create(unsigned long int size)
 {
 	shash_table_t *new;
-	int index;
+	unsigned long int index;
 
 	new = malloc(sizeof(shash_table_t));
 	if (new == NULL)
@@ -26,8 +26,8 @@ shash_table_t *shash_table_create(unsigned long int size)
 	for (index = 0; index < size; index++)
 	{
 		new->array[index] = NULL;
-		new->array[index]->shead = NULL;
-		new->array[index]->stail = NULL;
+		new->shead = NULL;
+		new->stail = NULL;
 	}
 	return (new);
 }
@@ -66,18 +66,18 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 	key_copy = strdup(key);
 	value_copy = strdup(value);
-	node->key = key->copy;
-	node->value = value->copy;
+	node->key = key_copy;
+	node->value = value_copy;
 	node->next = NULL;
 	node->sprev = NULL;
 	node->snext = NULL;
 
 	if (ht->array[index] == NULL)
-		ht->array[index] == node;
+		ht->array[index] = node;
 	else
 	{
 		node->next = ht->array[index];
-		ht->array[index] == node;
+		ht->array[index] = node;
 	}
 	return (0);
 }
@@ -156,7 +156,7 @@ void shash_table_print(const shash_table_t *ht)
  */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-	printf("");
+	printf("%s\n", ht->array[0]->key);
 }
 
 /**
@@ -176,39 +176,6 @@ void shash_table_delete(shash_table_t *ht)
 	}
 	free(ht->array);
 	free(ht);
-}
-
-/**
- * hash_djb2 - hash function
- * @str: string to hash
- *
- * Return: an int value of hashed string
- */
-unsigned long int hash_djb2(const unsigned char *str)
-{
-	unsigned long int hash;
-	int c;
-
-	hash = 5381;
-	while ((c = *str++))
-	{
-		hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
-	}
-	return (hash);
-}
-
-/**
- * key_index - gives the index of a k
- * @key: the key
- * @size: size of the array of the hash table
- *
- * Return: index where key/value pair should be stored
- */
-unsigned long int key_index(const unsigned char *key, unsigned long int size)
-{
-	unsigned long int hash = hash_djb2(key);
-
-	return (hash % size);
 }
 
 /**
