@@ -12,9 +12,8 @@ void hash_table_print(const hash_table_t *ht)
 	int flag = 0;
 	hash_node_t *temp;
 
-	if (ht == NULL)
-		printf("{}\n");
-	else
+	if (ht)
+	{
 		printf("{");
 		for (index = 0; index < ht->size; index++)
 		{
@@ -32,4 +31,5 @@ void hash_table_print(const hash_table_t *ht)
 			}
 		}
 		printf("}\n");
+	}
 }
