@@ -1,0 +1,13 @@
+#!/bin/bash
+cat < template.c > 0-holberton.c
+cat < template.c > 1-alphabet.c
+cat < template.c > 2-print_alphabet_x10.c
+cat < template.c > 3-islower.c
+cat < template.c > 4-isalpha.c
+cat < template.c > 5-sign.c
+cat < template.c > 6-abs.c
+cat < template.c > 7-print_last_digit.c
+cat < template.c > 8-24_hours.c
+cat < template.c > 9-times_table.c
+cat < template.c > 10-add.c 
+cat < template.c >11-print_to_98.c
