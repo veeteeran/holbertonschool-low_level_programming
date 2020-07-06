@@ -1,5 +1,6 @@
 CC = gcc
 SRC := $(wildcard *.c)
-all:
+
+all: 
 	@echo gcc main.c holberton.c -o holberton
-	gcc main.c holberton.c -o holberton
+	$(CC) $(SRC) -o holberton
