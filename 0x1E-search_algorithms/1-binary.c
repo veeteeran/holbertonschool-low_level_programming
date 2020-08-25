@@ -8,9 +8,34 @@
  * @value: the value to search for
  *
  * Return: the index where value is located
- /
+ */
 
 int binary_search(int *array, size_t size, int value)
 {
+	int i, mid, start = 0, end = (int)size - 1;
 
+	if (array == NULL)
+		return (-1);
+
+	while (1)
+	{
+		printf("Searching in array: ");
+		for (i = start; i <= end; i++)
+		{
+			printf("%d", array[i]);
+			if (i < end)
+				printf(", ");
+		}
+		printf("\n");
+		mid = (start + end) / 2;
+		if (value < array[mid])
+			end = mid - 1;
+		else
+			start = mid + 1;
+
+		if (value == array[mid])
+                	return (mid);
+		else if (mid == end)
+			return (-1);
+	}
 }
