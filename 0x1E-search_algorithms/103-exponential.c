@@ -44,7 +44,7 @@ int exponential_search(int *array, size_t size, int value)
  * @start: index where to start search
  * @size: number of elements in array
  * @value: the value to search for
- * 
+ *
  * Return: the index where value is located
  */
 
